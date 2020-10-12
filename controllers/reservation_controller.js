@@ -1,11 +1,12 @@
 const reservation_model = require('../models/reservation_model');
 const service_model = require('../models/service_model');
+const { get_service } = require('./service_controller');
 
 const reservation_data = (req) => {
     let data = {
         start_date: req.body.start_date,
         end_date: req.body.end_date,
-        service_name: req.body.service_name.findByIdAndUpdate
+        service_name: req.body.service_name
 
     };
     return data;
@@ -47,7 +48,6 @@ const get_reservation = (req, res, next) => {
     let id = req.params.id;
 
     reservation_model.findById(id)
-    
         .lean()
         .then(reservation  => {
         res.send(JSON.stringify(reservation));

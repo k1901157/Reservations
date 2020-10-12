@@ -13,14 +13,14 @@ const schema = new Schema({
         required: true,
     },
     service_name: {
-       // type: mongoose.Schema.Types.ObjectId,
-       // ref: "service_model",
-       // req: true
-        type: Number,
-        references: {
-            model: service_model,
-            key: 'id',
-        },
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "service_model",
+        req: true
+       // type: String,
+       // references: {
+        //    model: service_model,
+         //   key: 'id',
+        //},
     }
     
 });
