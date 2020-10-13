@@ -35,6 +35,7 @@ const get_reservations = (req, res, next) => {
 
     reservation_model.find({})
         .lean()
+        .populate('service_name')
         .then(reservation  => {
             res.send(JSON.stringify(reservation));
         }).catch(err => {

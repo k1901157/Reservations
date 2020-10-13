@@ -14,7 +14,7 @@ const schema = new Schema({
     },
     service_name: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: "service_model",
+        ref: "service",
         req: true
        // type: String,
        // references: {
