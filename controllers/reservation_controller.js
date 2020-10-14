@@ -1,12 +1,11 @@
 const reservation_model = require('../models/reservation_model');
-const service_model = require('../models/service_model');
-const { get_service } = require('./service_controller');
 
 const reservation_data = (req) => {
     let data = {
         start_date: req.body.start_date,
         end_date: req.body.end_date,
-        service_name: req.body.service_name
+        service_details: req.body.service_details,
+        customer_details: req.body.customer_details,
 
     };
     return data;
@@ -35,7 +34,8 @@ const get_reservations = (req, res, next) => {
 
     reservation_model.find({})
         .lean()
-        .populate('service_name')
+        .populate('service_details')
+        .populate('customer_details')
         .then(reservation  => {
             res.send(JSON.stringify(reservation));
         }).catch(err => {
@@ -50,6 +50,8 @@ const get_reservation = (req, res, next) => {
 
     reservation_model.findById(id)
         .lean()
+        .populate('service_details')
+        .populate('customer_details')
         .then(reservation  => {
         res.send(JSON.stringify(reservation));
         res.send();
@@ -97,5 +99,5 @@ const delete_reservation = (req, res, next) => {
 module.exports.post_reservation = post_reservation;
 module.exports.get_reservations = get_reservations;
 module.exports.get_reservation = get_reservation;
-//modul.exports.put_reservation = put_reservation;
-//module.exports.delete_reservation = delete_reservation;
+module.exports.put_reservation = put_reservation;
+module.exports.delete_reservation = delete_reservation;

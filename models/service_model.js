@@ -8,7 +8,14 @@ const schema = new Schema({
         index: {
             unique: true
         }
+    },
+
+    location: {
+        type: String,
+        required: true,
     }
+
+
 });
 
 module.exports = mongoose.model("service", schema);

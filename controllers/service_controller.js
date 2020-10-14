@@ -3,6 +3,7 @@ const service_model = require('../models/service_model');
 const service_data = (req) => {
     let data = {
         service_name: req.body.service_name,
+        location: req.body.location,
 
     };
     return data;

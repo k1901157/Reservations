@@ -37,11 +37,13 @@ app.get("/api/reservations", reservation_controller.get_reservations);
 //READ by :id
 app.get("/api/customer/:id", customer_controller.get_customer);
 app.get("/api/service/:id", service_controller.get_service);
+app.get("/api/reservation/:id", reservation_controller.get_reservation);
 
 //UPDATE
+app.put("/reservation/:id", reservation_controller.put_reservation);
 
 //DELETE
-
+app.delete("/reservation/:id", reservation_controller.delete_reservation);
 
 
 const database_uri = "mongodb+srv://server:df5OnEZush49tpT2@cluster0-9q7ur.mongodb.net/reservationdb?retryWrites=true&w=majority";

@@ -12,16 +12,16 @@ const schema = new Schema({
         type: Date,
         required: true,
     },
-    service_name: {
+    service_details: {
         type: mongoose.Schema.Types.ObjectId,
         ref: "service",
         req: true
-       // type: String,
-       // references: {
-        //    model: service_model,
-         //   key: 'id',
-        //},
-    }
+    },
+    customer_details: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "customer",
+        req: true
+    },
     
 });
 

@@ -8,6 +8,14 @@ const schema = new Schema({
         index: {
             unique: true
         }
+    },
+    customer_phone: {
+        type: String,
+        required: true,
+    },
+    customer_email: {
+        type: String,
+        required: true,
     }
 });
 

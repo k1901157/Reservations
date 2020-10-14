@@ -3,6 +3,8 @@ const customer_model = require('../models/customer_model');
 const customer_data = (req) => {
     let data = {
         customer_name: req.body.customer_name,
+        customer_phone: req.body.customer_phone,
+        customer_email: req.body.customer_email,
 
     };
     return data;
