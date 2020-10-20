@@ -27,17 +27,17 @@ app.use((req, res, next) => {
 //CREATE
 app.post("/api/customer", customer_controller.post_customer);
 app.post("/api/service", service_controller.post_service);
-app.post("/api/reservation", reservation_controller.post_reservation);
+app.post("/reservation", reservation_controller.post_reservation);
 
 //READ
 app.get("/api/customers", customer_controller.get_customers);
 app.get("/api/services", service_controller.get_services);
-app.get("/api/reservations", reservation_controller.get_reservations);
+app.get("/reservations", reservation_controller.get_reservations);
 
 //READ by :id
 app.get("/api/customer/:id", customer_controller.get_customer);
 app.get("/api/service/:id", service_controller.get_service);
-app.get("/api/reservation/:id", reservation_controller.get_reservation);
+app.get("/reservation/:id", reservation_controller.get_reservation);
 
 //UPDATE
 app.put("/reservation/:id", reservation_controller.put_reservation);

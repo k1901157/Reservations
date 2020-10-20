@@ -1,5 +1,4 @@
 const mongoose = require('mongoose');
-const service_model = require('./service_model')
 const Schema = mongoose.Schema;
 
 const schema = new Schema({

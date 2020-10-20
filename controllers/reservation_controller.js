@@ -1,5 +1,6 @@
 const reservation_model = require('../models/reservation_model');
 
+//all data that we need to post the reservations details.
 const reservation_data = (req) => {
     let data = {
         start_date: req.body.start_date,
@@ -11,7 +12,8 @@ const reservation_data = (req) => {
     return data;
 };
 
-// Create
+//Create
+//adding the reservations to Database.
 const post_reservation = (req, res, next) => {
     console.log('post_reservation');
     let data = reservation_data(req);
@@ -25,10 +27,12 @@ const post_reservation = (req, res, next) => {
         res.status(500);
         res.send(err.errmsg);
         console.log(err);
+        console.log('Please check your entries and try again!');
     }); 
 };
 
 //Read
+//get all reservations from Database.
 const get_reservations = (req, res, next) => {
     console.log('get_reservations');
 
@@ -44,7 +48,7 @@ const get_reservations = (req, res, next) => {
             console.log(err);
         });
 };
-//Read by id 
+//Read by id
 const get_reservation = (req, res, next) => {
     let id = req.params.id;
 
@@ -60,10 +64,12 @@ const get_reservation = (req, res, next) => {
         res.status(500);
         res.send(err.errmsg);
         console.log(err);
+        console.log('Please check the reservation id!');
     });
 };
 
-// Update
+//Update
+//to edit the reservations details then post them again to Database using the reservation id.
 const put_reservation = (req, res, next) => {
     console.log('put_reservation');
     let id = req.params.id;
@@ -77,13 +83,14 @@ const put_reservation = (req, res, next) => {
         res.status(500);
         res.send(err.errmsg);
         console.log(err);
+        console.log('Please check your entries and try again!');
     });
 
 };
 
 
 //Delete
-
+//to delete the reservation by using the id.
 const delete_reservation = (req, res, next) => {
     let id = req.params.id;
 
@@ -93,6 +100,7 @@ const delete_reservation = (req, res, next) => {
         res.status(500);
         res.send(err.errmsg);
         console.log(err);
+        console.log('Please check the reservation id!');
     });
 };
 

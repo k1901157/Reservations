@@ -1,5 +1,6 @@
 const service_model = require('../models/service_model');
 
+//All Data needed to add Services details to Database.
 const service_data = (req) => {
     let data = {
         service_name: req.body.service_name,
@@ -10,6 +11,7 @@ const service_data = (req) => {
 };
 
 // Create
+//Add Services Details to Database.
 const post_service = (req, res, next) => {
     console.log('post_service');
     let data = service_data(req);
@@ -23,10 +25,12 @@ const post_service = (req, res, next) => {
         res.status(500);
         res.send(err.errmsg);
         console.log(err);
+        console.log('Please check your entries and try again!');
     }); 
 };
 
 //Read
+//Get all Services Details from Database.
 const get_services = (req, res, next) => {
     console.log('get_services');
 
@@ -55,10 +59,13 @@ const get_service = (req, res, next) => {
         res.status(500);
         res.send(err.errmsg);
         console.log(err);
+        console.log('Please check the id!');
     });
 };
 
-// Update
+//Update
+//to update the Services details.
+//it is inactive yet, because the purpose so far is just to add the services details and read them.
 const put_service = (req, res, next) => {
     console.log('put_service');
     let id = req.params.id;
@@ -78,7 +85,8 @@ const put_service = (req, res, next) => {
 
 
 //Delete
-
+//to delete the services details by using the id.
+//it is inactive yet, because the purpose so far is just to add the services details and read them.
 const delete_service = (req, res, next) => {
     let id = req.params.id;
 

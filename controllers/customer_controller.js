@@ -1,5 +1,6 @@
 const customer_model = require('../models/customer_model');
 
+//All Data needed to add Customers details to Database.
 const customer_data = (req) => {
     let data = {
         customer_name: req.body.customer_name,
@@ -10,7 +11,8 @@ const customer_data = (req) => {
     return data;
 };
 
-// Create
+//Create
+//Add Customers Details to Database.
 const post_customer = (req, res, next) => {
     console.log('post_customer');
     let data = customer_data(req);
@@ -24,10 +26,12 @@ const post_customer = (req, res, next) => {
         res.status(500);
         res.send(err.errmsg);
         console.log(err);
+        console.log('Please check your entries and try again!');
     }); 
 };
 
 //Read
+//Get all Customers Details from Database.
 const get_customers = (req, res, next) => {
     console.log('get_customers');
 
@@ -56,10 +60,13 @@ const get_customer = (req, res, next) => {
         res.status(500);
         res.send(err.errmsg);
         console.log(err);
+        console.log('Please check the id!');
     });
 };
 
-// Update
+//Update
+//to update the customers details.
+//it is inactive yet, because the purpose so far is just to add the customers details and read them.
 const put_customer = (req, res, next) => {
     console.log('put_customer');
     let id = req.params.id;
@@ -79,7 +86,8 @@ const put_customer = (req, res, next) => {
 
 
 //Delete
-
+//to delete the Customers details by using the id.
+//it is inactive yet, because the purpose so far is just to add the customers details and read them.
 const delete_customer = (req, res, next) => {
     let id = req.params.id;
 
