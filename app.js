@@ -45,6 +45,8 @@ app.put("/reservation/:id", reservation_controller.put_reservation);
 //DELETE
 app.delete("/reservation/:id", reservation_controller.delete_reservation);
 
+//patch
+app.patch("/reservation/:id", reservation_controller.patch_reservation);
 
 const database_uri = "mongodb+srv://server:df5OnEZush49tpT2@cluster0-9q7ur.mongodb.net/reservationdb?retryWrites=true&w=majority";
                     

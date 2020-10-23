@@ -88,6 +88,23 @@ const put_reservation = (req, res, next) => {
 
 };
 
+const patch_reservation = (req,res,next) => {
+    let id = req.params.id;
+    let data = reservation_data(req);
+
+    reservation_model.findByIdAndUpdate({_id: id, data}, {data}, {
+        // new: true
+    })
+    .exec()
+    .then((reservation) => {
+        res.send(reservation);
+    }).catch(err => {
+        res.status(500);
+        res.send(err.errmsg);
+        console.log(err);
+        console.log('Please check your entries and try again!');
+    });
+}
 
 //Delete
 //to delete the reservation by using the id.
@@ -109,3 +126,4 @@ module.exports.get_reservations = get_reservations;
 module.exports.get_reservation = get_reservation;
 module.exports.put_reservation = put_reservation;
 module.exports.delete_reservation = delete_reservation;
+module.exports.patch_reservation = patch_reservation;
