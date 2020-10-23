@@ -88,6 +88,24 @@ const put_reservation = (req, res, next) => {
 
 };
 
+
+//Delete
+//to delete the reservation by using the id.
+const delete_reservation = (req, res, next) => {
+    let id = req.params.id;
+
+    reservation_model.findByIdAndRemove(id).then(() => {
+        res.send();
+    }).catch(err => {
+        res.status(500);
+        res.send(err.errmsg);
+        console.log(err);
+        console.log('Please check the reservation id!');
+    });
+};
+
+//patch
+//trying to solve the problem with path, but still not working as expected.
 const patch_reservation = (req,res,next) => {
     let id = req.params.id;
     let data = reservation_data(req);
@@ -105,21 +123,6 @@ const patch_reservation = (req,res,next) => {
         console.log('Please check your entries and try again!');
     });
 }
-
-//Delete
-//to delete the reservation by using the id.
-const delete_reservation = (req, res, next) => {
-    let id = req.params.id;
-
-    reservation_model.findByIdAndRemove(id).then(() => {
-        res.send();
-    }).catch(err => {
-        res.status(500);
-        res.send(err.errmsg);
-        console.log(err);
-        console.log('Please check the reservation id!');
-    });
-};
 
 module.exports.post_reservation = post_reservation;
 module.exports.get_reservations = get_reservations;
